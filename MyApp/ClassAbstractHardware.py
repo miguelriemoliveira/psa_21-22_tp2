@@ -11,7 +11,11 @@ class ClassAbstractHardware(ABC):
             print('Hardware already connected. Cannot reconnect!')
             return False
 
-        return self._connect(device)
+        if self._connect(device):
+            self.is_connected = True
+            return True
+        else:
+            return False
 
     @abstractmethod
     def _connect(self, device):
@@ -22,7 +26,11 @@ class ClassAbstractHardware(ABC):
             print('Hardware already disconnected. Cannot disconnect!')
             return False
 
-        return self._disconnect()
+        if self._disconnect():
+            self.is_connected = False
+            return True
+        else:
+            return False
 
     @abstractmethod
     def _disconnect(self):
