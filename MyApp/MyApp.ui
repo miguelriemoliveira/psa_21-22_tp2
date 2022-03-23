@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.2">
+  <object class="tk.Toplevel" id="toplevelMain">
+    <property name="height">200</property>
+    <property name="title" translatable="yes">PSA TP2</property>
+    <property name="width">400</property>
+    <child>
+      <object class="pygubu.builder.widgets.toplevelmenu" id="toplevelmenu1">
+        <child>
+          <object class="tk.Menu" id="menu1">
+            <child>
+              <object class="tk.Menuitem.Submenu" id="submenuFile">
+                <property name="label" translatable="yes">File</property>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandExit">
+                    <property name="command" type="command" cbtype="simple">callbackCommandExit</property>
+                    <property name="label" translatable="yes">Exit</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Menuitem.Submenu" id="submenuCamera">
+                <property name="label" translatable="yes">Camera</property>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandCameraConnect">
+                    <property name="command" type="command" cbtype="simple">callbackCameraConnect</property>
+                    <property name="label" translatable="yes">Connect</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandCameraDisconnect">
+                    <property name="command" type="command" cbtype="simple">callbackCameraDisconnect</property>
+                    <property name="label" translatable="yes">Disconnect</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Menuitem.Submenu" id="submenuGamePad">
+                <property name="label" translatable="yes">GamePad</property>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandGamePadConnect">
+                    <property name="command" type="command" cbtype="simple">callbackGamePadConnect</property>
+                    <property name="label" translatable="yes">Connect</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandGamPadDisconnect">
+                    <property name="command" type="command" cbtype="simple">callbackGamePadDisconnect</property>
+                    <property name="label" translatable="yes">Disconnect</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Menuitem.Submenu" id="submenuPTU">
+                <property name="font">TkTextFont</property>
+                <property name="label" translatable="yes">PTU</property>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandPTUConnect">
+                    <property name="command" type="command" cbtype="simple">callbackPTUConnect</property>
+                    <property name="label" translatable="yes">Connect</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="tk.Menuitem.Command" id="commandPTUDisconnect">
+                    <property name="command" type="command" cbtype="simple">callbackPTUDisconnect</property>
+                    <property name="label" translatable="yes">Disconnect</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="toplevelGamePad">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="ttk.Entry" id="entryAxis0">
+        <property name="justify">center</property>
+        <property name="state">readonly</property>
+        <property name="textvariable">string:entryAxis0TextVariable</property>
+        <property name="width">12</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Entry" id="entryAxis1">
+        <property name="justify">center</property>
+        <property name="state">readonly</property>
+        <property name="textvariable">string:entryAxis1TextVariable</property>
+        <property name="width">12</property>
+        <layout manager="grid">
+          <property name="column">1</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="labelAxis0">
+        <property name="text" translatable="yes">Axis0</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="labelAxis1">
+        <property name="text" translatable="yes">Axis1</property>
+        <layout manager="grid">
+          <property name="column">1</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>

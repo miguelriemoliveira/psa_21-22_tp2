@@ -22,6 +22,7 @@ class ClassPTU(ClassAbstractHardware):
         super().__init__()  # call super class constructor
         self.goal = PositionSpeed()
         self.current = PositionSpeed()
+        self.previous_msg = ''
 
     def _connect(self, device):
         self.serial = serial.Serial()  # configuration of the serial port
@@ -37,6 +38,8 @@ class ClassPTU(ClassAbstractHardware):
         self.serial.open()  # open the port
 
         msg_to_send = 'ED\n'
+        self.serial.write(msg_to_send.encode())
+        msg_to_send = 'TS2000\n'
         self.serial.write(msg_to_send.encode())
 
         return True
@@ -61,7 +64,12 @@ class ClassPTU(ClassAbstractHardware):
         data_received = self.serial.read_all().decode()
         # print('data received:\n' + data_received + '\n\n')
 
+        data_received = self.previous_msg + data_received
+
+
+
         msgs_received = data_received.split('\n')
+        self.previous_msg = msgs_received[-1]
         # print('msgs received:\n' + str(msgs_received) + '\n\n')
 
         for msg_received in msgs_received:
